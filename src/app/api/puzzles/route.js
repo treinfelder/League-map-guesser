@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllPuzzles } from "../../lib/puzzles";
+import { getAllPuzzles } from "../../../lib/puzzles";
 
 export async function GET() {
   const puzzles = await getAllPuzzles();

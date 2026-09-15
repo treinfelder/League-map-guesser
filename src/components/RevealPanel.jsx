@@ -4,8 +4,8 @@ export default function RevealPanel({ guess, correct, explanation }) {
   const isCorrect = guess === correct;
 
   const containerClasses = isCorrect
-    ? "mt-8 p-6 rounded-xl bg-green-900/30 border border-green-500/60 shadow-lg shadow-green-800/30 backdrop-blur-sm mx-auto max-w-xl"
-    : "mt-8 p-6 rounded-xl bg-red-900/30 border border-red-500/60 shadow-lg shadow-red-800/30 backdrop-blur-sm mx-auto max-w-xl";
+    ? "mt-8 p-6 rounded-xl bg-green-900/30 border border-green-500/60 shadow-lg shadow-green-800/30 backdrop-blur-sm mx-auto max-w-xl animate-reveal"
+    : "mt-8 p-6 rounded-xl bg-red-900/30 border border-red-500/60 shadow-lg shadow-red-800/30 backdrop-blur-sm mx-auto max-w-xl animate-reveal";
 
   const titleClasses = isCorrect
     ? "text-3xl font-extrabold mb-3 text-green-300 drop-shadow"
@@ -13,6 +13,10 @@ export default function RevealPanel({ guess, correct, explanation }) {
 
   return (
     <div className={containerClasses}>
+      <h1 className="text-3xl font-extrabold text-white mb-4 tracking-wide drop-shadow">
+        Daily Pro Minimap Puzzle
+      </h1>
+
       <h2 className={titleClasses}>
         {isCorrect ? "Correct!" : "Incorrect"}
       </h2>

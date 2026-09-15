@@ -6,12 +6,9 @@ import PuzzleVideo from "../components/PuzzleVideo";
 import RevealPanel from "../components/RevealPanel";
 import GuessButtons from "../components/GuessButtons";
 
-
-
 export default function Home() {
   const [guess, setGuess] = useState(null);
 
-  
   const today = new Date().toISOString().split("T")[0];
 
   // Puzzle data for the day (TO BE AUTOMATED)
@@ -21,22 +18,25 @@ export default function Home() {
     image: "/images/puzzles/2026.09.13SENFLY.PNG",
     clip: "/clips/2026.09.13SENFLY.mp4",
     correct: "Red wins",
-    explanation:
-      "Blue team caught mid."
+    explanation: "Blue team caught mid."
   };
 
   return (
-    <main className="w-full max-w-3xl px-4 py-8 flex flex-col items-center">
+    <main className="min-h-screen w-full flex flex-col items-center px-4 py-12">
 
-      {/* HEADER */}
-      <header className="mb-6 text-center">
-        <h1 className="text-4xl font-bold mb-2">
-          Daily Minimap Puzzle — {today}
+      {/* MAIN TITLE */}
+      <header className="text-center mb-10">
+        <h1 className="text-5xl font-extrabold text-white tracking-wide drop-shadow-lg mb-3">
+          Daily Pro Minimap Puzzle
         </h1>
 
-        {/* Show metadata only after reveal */}
+        <p className="text-gray-300 text-lg">
+          {today}
+        </p>
+
+        {/* Metadata only after reveal */}
         {guess && (
-          <>
+          <div className="mt-4">
             <p className="text-gray-400 text-lg">
               <strong>Date of game:</strong> {puzzle.date}
             </p>
@@ -44,13 +44,13 @@ export default function Home() {
             {puzzle.meta && (
               <p className="text-gray-500 mt-1">{puzzle.meta}</p>
             )}
-          </>
+          </div>
         )}
       </header>
 
       {/* IMAGE OR VIDEO FRAME */}
-      <div className="w-full flex flex-col items-center">
-        <div className="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 max-w-xl w-full flex justify-center">
+      <div className="w-full flex justify-center mb-8">
+        <div className="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700 max-w-xl w-full flex justify-center">
           {!guess && <PuzzleImage src={puzzle.image} />}
           {guess && <PuzzleVideo clip={puzzle.clip} />}
         </div>

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getAllPuzzles } from "../../../lib/puzzles";
+import { getAllPuzzles } from "../../lib/puzzles";
 
-
-export function GET() {
-  return NextResponse.json(getAllPuzzles());
+export async function GET() {
+  const puzzles = await getAllPuzzles();
+  return NextResponse.json(puzzles);
 }

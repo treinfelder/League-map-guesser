@@ -30,7 +30,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/api/puzzles/today/route.js"  ],
   "exclude": [
     "node_modules"
   ]

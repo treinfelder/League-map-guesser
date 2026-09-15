@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { getAllPuzzles } from "../../../lib/puzzles";
+import { getTodayPuzzle } from "../../../lib/puzzles";
+
 
 export function GET() {
   return NextResponse.json(getTodayPuzzle());
